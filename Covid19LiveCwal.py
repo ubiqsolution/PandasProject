@@ -22,4 +22,4 @@ if response.status_code == 200:
     print('코로나19 사망자 수: ' + covid_data[1].text)
     print('코로나19 완치자 수: ' + covid_data[2].text)
 else : 
-    print(response.status_code)
+    print('Error Code: ' + response.status_code)
