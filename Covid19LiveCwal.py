@@ -20,6 +20,9 @@ def worldcovid():
         soup = BeautifulSoup(html, 'html.parser')
         covid_data = soup.findAll('div', class_='maincounter-number')
         
+        # covid_date = soup.select_one('body > div.container > div:nth-child(2) > div.col-md-8 > div > div:nth-child(5)')
+        # print(covid_date.text.strip()) # 날짜 출력
+        
         covid_data_strip = covid_data[0].text.strip() # 텍스트화(안하면 줄바꿈 처리됨)
         covid_data_strip_1 = covid_data[1].text.strip() # 텍스트화(안하면 줄바꿈 처리됨)
         covid_data_strip_2 = covid_data[2].text.strip() # 텍스트화(안하면 줄바꿈 처리됨)
