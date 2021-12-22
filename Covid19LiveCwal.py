@@ -20,10 +20,14 @@ def worldcovid():
         soup = BeautifulSoup(html, 'html.parser')
         covid_data = soup.findAll('div', class_='maincounter-number')
         
+        covid_data_strip = covid_data[0].text.strip() # 텍스트화(안하면 줄바꿈 처리됨)
+        covid_data_strip_1 = covid_data[1].text.strip() # 텍스트화(안하면 줄바꿈 처리됨)
+        covid_data_strip_2 = covid_data[2].text.strip() # 텍스트화(안하면 줄바꿈 처리됨)
+        
         print('-전세계 코로나19 DATA-')
-        print('코로나19 확진자 수: ' + covid_data[0].text + '명')
-        print('코로나19 사망자 수: ' + covid_data[1].text + '명')
-        print('코로나19 완치자 수: ' + covid_data[2].text + '명')
+        print('코로나19 확진자 수: ' + covid_data_strip + '명')
+        print('코로나19 사망자 수: ' + covid_data_strip_1 + '명')
+        print('코로나19 완치자 수: ' + covid_data_strip_2 + '명')
         print('')
         
     else : 
@@ -60,7 +64,7 @@ def localcovid():
         print('')
     
     else :
-        print(covid_url_request.status_code)
+        print('Error Code: ' + covid_url_request.status_code)
 
 worldcovid()
 localcovid()
