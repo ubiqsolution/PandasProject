@@ -57,6 +57,6 @@ def localcovid():
     print('주간 일평균 코로나 확진자 수 : ' + covid_confirmed_reverge_txt + '명') # 주간 일평균 코로나 확진자수 출력
     print('')
 
-if __name__ == "__main__":
+if __name__ == "__main__": # 인터프리터에서 직접 실행했을 경우에만 if문 내의 코드를 돌리라는 명령
     worldcovid()
     localcovid()
