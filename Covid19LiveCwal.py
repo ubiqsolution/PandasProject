@@ -19,15 +19,14 @@ def worldcovid():
         html = response.text
         soup = BeautifulSoup(html, 'html.parser')
         covid_data = soup.findAll('div', class_='maincounter-number')
-        
-        # covid_date = soup.select_one('body > div.container > div:nth-child(2) > div.col-md-8 > div > div:nth-child(5)')
-        # print(covid_date.text.strip()) # 날짜 출력
+        covid_date= soup.find('div', style='font-size:13px; color:#999; margin-top:5px; text-align:center').text
         
         covid_data_strip = covid_data[0].text.strip() # 텍스트화(안하면 줄바꿈 처리됨)
-        covid_data_strip_1 = covid_data[1].text.strip() # 텍스트화(안하면 줄바꿈 처리됨)
-        covid_data_strip_2 = covid_data[2].text.strip() # 텍스트화(안하면 줄바꿈 처리됨)
+        covid_data_strip_1 = covid_data[1].text.strip()
+        covid_data_strip_2 = covid_data[2].text.strip()
         
         print('-전세계 코로나19 DATA-')
+        print('기준날짜: ' + covid_date)
         print('코로나19 확진자 수: ' + covid_data_strip + '명')
         print('코로나19 사망자 수: ' + covid_data_strip_1 + '명')
         print('코로나19 완치자 수: ' + covid_data_strip_2 + '명')
